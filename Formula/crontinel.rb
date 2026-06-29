@@ -1,21 +1,21 @@
 class Crontinel < Formula
   desc "CLI tool for Crontinel background job monitoring"
   homepage "https://crontinel.com"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/crontinel/cli/releases/download/v0.1.0/crontinel_0.1.0_darwin_arm64.tar.gz"
-    sha256 "92d979cf5e8f3832e4b937a217e798751a879ed49efcc7e08e38b628fae1afaa"
+    url "https://github.com/crontinel/cli/releases/download/v0.1.1/crontinel_0.1.1_darwin_arm64.tar.gz"
+    sha256 "6b6750da4fa200f93b8e31bb5156af32fca890763c5d2805d8997fb313814aac"
   elsif OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/crontinel/cli/releases/download/v0.1.0/crontinel_0.1.0_darwin_amd64.tar.gz"
-    sha256 "5176c616a99fdcb29215fb50542fc0833395d1ab4d6bea0963909810511d7340"
+    url "https://github.com/crontinel/cli/releases/download/v0.1.1/crontinel_0.1.1_darwin_amd64.tar.gz"
+    sha256 "b7adf126525dff61e3b3854522db27f08088cf5fc2ffed79b21f06607a9bcf7f"
   elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/crontinel/cli/releases/download/v0.1.0/crontinel_0.1.0_linux_amd64.tar.gz"
-    sha256 "836b509d4330dab8e3ee8b593467abc087427367f60628af20d8d7c9cb89d885"
+    url "https://github.com/crontinel/cli/releases/download/v0.1.1/crontinel_0.1.1_linux_amd64.tar.gz"
+    sha256 "90f76fb407c381faefc0103f26896010ca7d8ebd1addd4f0308ce93d56e6ac5b"
   elsif OS.linux? && Hardware::CPU.arm?
-    url "https://github.com/crontinel/cli/releases/download/v0.1.0/crontinel_0.1.0_linux_arm64.tar.gz"
-    sha256 "024df7dee36ed4e0c5d5b4d46068d3fc0afa8d2db64893d6eae3e78d974bdde7"
+    url "https://github.com/crontinel/cli/releases/download/v0.1.1/crontinel_0.1.1_linux_arm64.tar.gz"
+    sha256 "20e88fe232ba6c445d6d448eb4912c80bca1851e8bd8d3b69bacbbfa4cba5b03"
   end
 
   def install
@@ -23,6 +23,6 @@ class Crontinel < Formula
   end
 
   test do
-    system "#{bin}/crontinel", "--help"
+    assert_match "Usage:", shell_output("#{bin}/crontinel --help")
   end
 end
